@@ -9,7 +9,6 @@ datafilename <- 'household_power_consumption.txt'
 # Filter to fetch data between 2007-02-01 and 2007-02-02
 dateFilter <- "SELECT * from file WHERE Date IN ('1/2/2007','2/2/2007')"
 
-# Does not accept as.is=TRUE, na.strings="?"
 rawData <- read.csv.sql(datafilename, header=TRUE, sep=";", sql = dateFilter)
 rawData$DateTime = strptime(paste(rawData$Date, rawData$Time), format="%d/%m/%Y %H:%M:%S")
 
